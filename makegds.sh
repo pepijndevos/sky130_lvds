@@ -26,6 +26,15 @@ gds write pfet_g5v0d10v5_7x015.gds
 quit -noprompt
 EOF
 
+magic -rcfile /usr/local/share/pdk/sky130B/libs.tech/magic/sky130B.magicrc -dnull -noconsole << EOF
+drc off
+box 0 0 0 0
+cellname rename nfet_g5v0d10v5_7x015
+gencell sky130::sky130_fd_pr__nfet_g5v0d10v5 nfet_g5v0d10v5_7x05 w 10 l 0.5 guard 0 botc 0
+gds write nfet_g5v0d10v5_7x015.gds
+quit -noprompt
+EOF
+
 # vias
 
 magic -rcfile /usr/local/share/pdk/sky130B/libs.tech/magic/sky130B.magicrc -dnull -noconsole << EOF
